@@ -1,27 +1,24 @@
 import { DataTypes } from "sequelize";
 import db from "../config/database.js";
 
-const Patient = db.define("patient", {
-  patient_id: {
+const Booking = db.define("booking", {
+  booking_id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  name: {
+  doctor: {
     type: DataTypes.STRING,
   },
-  phone_number: {
-    type: DataTypes.STRING,
+  appointment_time: {
+    type: DataTypes.DATE,
   },
-  email: {
-    type: DataTypes.STRING,
-  },
-  password: {
-    type: DataTypes.STRING,
+  patient_id: {
+    type: DataTypes.INTEGER,
   },
 });
 
-export default Patient;
+export default Booking;
 
 // If table "Patient doesn't exist", this function creates it
 (async () => {
